@@ -21,7 +21,7 @@ def browser(request):
     
     # В опции вебдрайвера передаем параметр из командной строки
     options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-    browser = webdriver.edge(options=options)
+    browser = webdriver.Edge(options=options)
     
     browser.implicitly_wait(5)
     yield browser
