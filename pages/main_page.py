@@ -24,4 +24,6 @@ class MainPage(BasePage):
     page.open()
     login_page = page.go_to_login_page()
     login_page.should_be_login_page()
-    
+
+  
+   
