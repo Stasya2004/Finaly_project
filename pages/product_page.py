@@ -35,13 +35,10 @@ class ProductPage(BasePage):
         assert product_cost == alert_text, \
             f"Product cost in cart is not equal to the product cost {alert_text} != {product_cost}"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.NAME_OF_GOOD_IN_ALERT), \
+            "Success message is presented, but should not be!"
 
-#    def should_not_see_success_message_upon_opening_product_page(self):
-#        assert self.is_not_element_present(
-#            *ProductPageLocators.ADDING_SUCCESS
-#               ), "Success element is visible for an user"
-
-#    def should_disappeared_success_message(self):
-#        assert self.is_disappeared(
-#            *ProductPageLocators.ADDING_SUCCESS
-#               ), "Success message has not disappeared"
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.NAME_OF_GOOD_IN_ALERT), \
+            "Success message should disappear, but it has not disappeared!"
