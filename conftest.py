@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 
 
+
 def pytest_addoption(parser):
     """Опции командной строки.
     В командную строку передается параметр вида '--language="es"'
