@@ -24,7 +24,7 @@ class TestLoginFromMainPage:
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com"
     page = MainPage(browser, link)
-    page.open()
-    page.go_to_basket()
-    basket_page = BasketPage(browser, browser.current_url)
-    basket_page.should_be_empty_basket()
+    page.open()                                            # Гость открывает страницу товара
+    page.go_to_basket()                                    # Переходит в корзину по кнопке в шапке сайта
+    basket_page = BasketPage(browser, browser.current_url) # Oжидаем, что в корзине нет тов    аров
+    basket_page.should_be_empty_basket()                   # Ожидаем, что есть текст о том, чт о корзина пуста
