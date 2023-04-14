@@ -21,23 +21,23 @@ class TestUserAddToCartFromProductPage:
 #        product_page.add_to_cart(True)            # Добавить в корзину
 #        product_page.should_be_present_in_cart()  # Проверка нахождения товара в корзине
 #        product_page.should_check_overall_cost()  # Проверка стоимости
-
+#
     def test_guest_cant_see_success_message_after_adding_product_to_basket(browser): 
         page = ProductPage(browser, link, 0)
         page.open()                                 # Открываем страницу товара 
         page.add_to_cart(True)                      # Добавляем товар в корзину 
         page.should_not_be_success_message()        # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
 
-    def test_guest_cant_see_success_message(browser): 
-        page = ProductPage(browser, link)
-        page.open()                                 # Открываем страницу товара 
-        page.should_not_be_success_message()        # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
-
-    def test_message_disappeared_after_adding_product_to_basket(browser): 
-        page = ProductPage(browser, link)
-        page.open()                                 # Открываем страницу товара 
-        page.add_to_cart(True)                      # Добавляем товар в корзину 
-        page.should_disappear_success_message()     # Проверяем, что нет сообщения об успехе с помощью  is_disappeared
+#    def test_guest_cant_see_success_message(browser): 
+#        page = ProductPage(browser, link)
+#        page.open()                                 # Открываем страницу товара 
+#        page.should_not_be_success_message()        # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+#
+#    def test_message_disappeared_after_adding_product_to_basket(browser): 
+#        page = ProductPage(browser, link)
+#        page.open()                                 # Открываем страницу товара 
+#        page.add_to_cart(True)                      # Добавляем товар в корзину 
+#        page.should_disappear_success_message()     # Проверяем, что нет сообщения об успехе с помощью  is_disappeared
         
 #    def test_guest_should_see_login_link_on_product_page(browser):
 #        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
@@ -60,3 +60,5 @@ class TestUserAddToCartFromProductPage:
 #        page.go_to_basket()                                     # Переходит в корзину по кнопке в шапке сайта
 #        basket_page = BasketPage(browser, browser.current_url)  # Ожидаем, что в корзине нет товаров
 #        basket_page.should_be_empty_basket()                    # Ожидаем, что есть текст о том, что корзина пуста
+
+

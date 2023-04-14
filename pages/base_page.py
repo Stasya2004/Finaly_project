@@ -1,16 +1,17 @@
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators, BasketPageLocators
 import math
-
+from selenium.webdriver.support.ui import WebDriverWait
 
 class BasePage():
   def __init__(self, browser, url, timeout=10):
     self.browser = browser
     self.url = url
-#    self.browser.implicitly_wait(timeout)
+    self.browser.implicitly_wait(timeout)
     
   def open(self):
     self.browser.get(self.url)
@@ -62,4 +63,3 @@ class BasePage():
   def go_to_basket(self):
        btn = self.browser.find_element(*BasketPageLocators.BTN_GO_TO_BASKET)
        btn.click()
-       
