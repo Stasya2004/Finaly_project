@@ -7,7 +7,7 @@ import time
 
 @pytest.mark.guest_add_good_to_basket
 class TestAddToBasketFromProductPage:
-    #@pytest.mark.need_review
+    @pytest.mark.need_review
     @pytest.mark.parametrize('link',
                              ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                               "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -26,7 +26,7 @@ class TestAddToBasketFromProductPage:
         page.add_to_shopping_cart()
         page.should_be_after_adding_to_cart()
 
-    #@pytest.mark.need_review
+    @pytest.mark.need_review
     def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
         page = ProductPage(browser, link)
@@ -66,7 +66,7 @@ class TestAddToBasketFromProductPage:
 
 @pytest.mark.login_guest
 class TestLoginFromProductPage:
-    #@pytest.mark.need_review
+    @pytest.mark.need_review
     def test_guest_can_go_to_login_page_from_product_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
@@ -96,7 +96,7 @@ class TestUserAddToBasketFromProductPage:
         login_page.should_be_authorized_user()
         yield browser
 
-    #@pytest.mark.need_review
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
         page = ProductPage(browser, link)
