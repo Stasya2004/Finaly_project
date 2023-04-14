@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
@@ -13,6 +13,6 @@ def browser(request):
     user_language = request.config.getoption('language')
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-    browser = webdriver.Edge(options=options)
+    browser = webdriver.Chrome(options=options)
     yield browser
     browser.quit()
