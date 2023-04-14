@@ -1,17 +1,14 @@
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators, BasketPageLocators
-import math
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import math
+#import time
 
 class BasePage():
   def __init__(self, browser, url, timeout=10):
     self.browser = browser
     self.url = url
-    self.browser.implicitly_wait(timeout)
+  #  self.browser.implicitly_wait(timeout)
     
   def open(self):
     self.browser.get(self.url)
@@ -52,18 +49,3 @@ class BasePage():
         return True
 
     return False
-
-  def go_to_login_page(self):
-    link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
-    link.click()
-
-  def should_be_login_link(self):
-      assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
-
-  def go_to_basket(self):
-       btn = self.browser.find_element(*BasketPageLocators.BTN_GO_TO_BASKET)
-       btn.click()
-<<<<<<< HEAD
-=======
-       
->>>>>>> bc9b81bec35f449a1ac381ef611b2fb8ddb028a0

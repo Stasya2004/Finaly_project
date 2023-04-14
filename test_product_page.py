@@ -21,7 +21,7 @@ class TestUserAddToCartFromProductPage:
 #        product_page.add_to_cart(True)            # Добавить в корзину
 #        product_page.should_be_present_in_cart()  # Проверка нахождения товара в корзине
 #        product_page.should_check_overall_cost()  # Проверка стоимости
-#
+
     def test_guest_cant_see_success_message_after_adding_product_to_basket(browser): 
         page = ProductPage(browser, link, 0)
         page.open()                                 # Открываем страницу товара 
